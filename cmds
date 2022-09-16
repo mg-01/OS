@@ -1,0 +1,121 @@
+ubuntu@ubuntu-Veriton-M200-H410:~$ mkdir medha
+ubuntu@ubuntu-Veriton-M200-H410:~$ cd medha
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ touch tiet.txt
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ echo "Today is Wednesday">tiet.txt
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ echo "this is os lab">tiet.txt
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ echo "Today is Wednesday">>tiet.txt
+> rewrites the content of file
+>> adds to the file without deleting contents
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ echo -e "today \n is \t  wednesday">>tiet.txt
+echo -e to enable interpretation of backslash
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ cat tiet.txt
+this is os lab
+Today is Wednesday
+today
+ is 	  wednesday
+cat to display content of file
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ cat tiet.txt>third.txt
+cat to copy content of one file to another
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ cat tiet.txt>>patiala.txt
+cat to add contents of one file to end of another file
+
+combine comds
+we can feed output of one comds into another as input
+pipeline symbol
+|
+
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ ^C
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ man cat
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ touch rat.txt | echo -e "a rat on mat\n ">>rat.txt | wc rat.txt
+ 2  4 15 rat.txt
+
+wc for word count
+2-> no. of lines
+4->no. of words
+15->no. Of chars
+
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ type echo
+echo is a shell builtin
+shell builtin -> internal comds
+
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ type touch
+touch is hashed (/usr/bin/touch)
+hashed->external comds
+
+
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ pwd
+/home/ubuntu/medha
+present working directory
+
+ubuntu@ubuntu-Veriton-M200-H410:~/medha$ cd ..
+to go one step out of file
+cd ../..
+cd /home   absolute path
+mkdir      make directory
+rmdir       delete directory but the directory should be empty
+rm -r        deletes directory even if not empty it will recursively empty it
+ubuntu@ubuntu-Veriton-M200-H410:~$ rm medha
+rm: cannot remove 'medha': Is a directory
+ubuntu@ubuntu-Veriton-M200-H410:~$ rm -r medha
+comparison of two txt files
+ubuntu@ubuntu-Veriton-M200-H410:~$ touch one.txt | echo -e "abc\nbcd\ncde ">>one.txt
+ubuntu@ubuntu-Veriton-M200-H410:~$ touch two.txt | echo -e "abc\ncde\nghi ">>two.txt
+ubuntu@ubuntu-Veriton-M200-H410:~$ comm one.txt two.txt
+		abc
+bcd
+	cde
+cde
+	ghi
+
+col 1-> unique condents of file 1
+col 2-> unique condents of file 2
+col 3-> common condents of file 1 & 2
+
+ubuntu@ubuntu-Veriton-M200-H410:~$ diff one.txt two.txt
+2,3c2,3
+< bcd
+< cde
+---
+> cde
+> ghi
+
+a->append
+c->change
+d->delete
+2,3c2,3 -> change line 2 to 3 of file 1 with line 2 to 3 of file 2
+
+
+to compress the file
+gzip  
+vzip2
+after compression og file rewritten by compressed file
+source.txt.gz
+
+ubuntu@ubuntu-Veriton-M200-H410:~$ wc source.txt
+ 5  9 43 source.txt
+ubuntu@ubuntu-Veriton-M200-H410:~$ gzip source.txt
+ubuntu@ubuntu-Veriton-M200-H410:~$ wc source.txt.gz
+ 0  2 73 source.txt.gz
+ubuntu@ubuntu-Veriton-M200-H410:~$ cat source.txt
+cat: source.txt: No such file or directory
+ubuntu@ubuntu-Veriton-M200-H410:~$ cat source.txt.gz
+m��bsource.txt
+              RHI-KO�S�RpTH�O�Q�Q�T(�H,�M�r,�LJ���d$rq���+ubuntu@ubuntu-Veriton-M200-H410:~$
+ubuntu@ubuntu-Veriton-M200-H410:~$ gzip-d source.txt.gz
+gzip-d: command not found
+ubuntu@ubuntu-Veriton-M200-H410:~$ gzip -d source.txt.gz
+ubuntu@ubuntu-Veriton-M200-H410:~$ cat source.txt
+R devgan
+ A goel \ I sharma
+Aria
+ Medha
+
+gzip -d to unzip
+
+tar -cf cool.tar source.txt destination.txt foo zoo
+-cf c for create f for archieve
+compress all file to cool.tar
+tar -xf cool.tar -> to unzip
+zip cool.zip
+
+
